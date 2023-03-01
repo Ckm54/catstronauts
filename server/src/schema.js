@@ -17,6 +17,11 @@ const typeDefs = gql `
     name: String!
     photo: String
   }
+
+  "Query to get tracks for the homepage grid"
+  type Query {
+    tracksForHome: [Track!]!
+  }
 `
 
 module.exports = typeDefs;
