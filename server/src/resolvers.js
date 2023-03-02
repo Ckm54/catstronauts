@@ -4,6 +4,10 @@ const resolvers = {
     tracksForHome: (_, __, { dataSources }) => {
       return dataSources.trackAPI.getTracksForHome();
     },
+    // get a single track by id for the track page
+    track: (_, {id}, {dataSources}) => {
+      return dataSources.trackAPI.getTrack(id);
+    },
 
     //* TESTING CODE --- INEFFICIENCY OF USING FETCH INSTEAD OF DATASOURCES
     // tracksForHomeFetch: async() => {
@@ -16,6 +20,10 @@ const resolvers = {
     author: ({authorId}, _, {dataSources}) => {
       return dataSources.trackAPI.getAuthor(authorId);
     },
+
+    modules: ({id}, _, {dataSources}) => {
+      return dataSources.trackAPI.getTrackModules(id);
+    }
 
     // * TESTING -- USING FETCH TAKES MORE TIME THAN USING DATASOURCES
     // author: async({authorId}, _, {dataSources}) => {
