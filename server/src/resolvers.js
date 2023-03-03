@@ -9,6 +9,11 @@ const resolvers = {
       return dataSources.trackAPI.getTrack(id);
     },
 
+    // get a single module by id for the module details page
+    module: (_, {id}, {dataSources}) => {
+      return dataSources.trackAPI.getModule(id);
+    }
+
     //* TESTING CODE --- INEFFICIENCY OF USING FETCH INSTEAD OF DATASOURCES
     // tracksForHomeFetch: async() => {
     //   const baseURL = "https://odyssey-lift-off-rest-api.herokuapp.com";
@@ -23,7 +28,7 @@ const resolvers = {
 
     modules: ({id}, _, {dataSources}) => {
       return dataSources.trackAPI.getTrackModules(id);
-    }
+    },
 
     // * TESTING -- USING FETCH TAKES MORE TIME THAN USING DATASOURCES
     // author: async({authorId}, _, {dataSources}) => {

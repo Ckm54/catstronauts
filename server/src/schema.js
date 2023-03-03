@@ -29,6 +29,10 @@ const typeDefs = gql `
     title: String!
     "The module's length in minutes"
     length: Int
+    "The module's text based description can be in markdown format, In case of video, it will be the enriched transcript"
+    content: String
+    "The module's video url for video-based modules"
+    videoUrl: String
   }
 
   "Author of a complete track or module"
@@ -44,6 +48,7 @@ const typeDefs = gql `
   type Query {
     tracksForHome: [Track!]!
     track(id: ID!): Track
+    module(id: ID!): Module!
 
     #  TESTING,,,
     # tracksForHomeFetch: [Track!]!
